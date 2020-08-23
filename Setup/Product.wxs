@@ -35,17 +35,15 @@
     <WixVariable Id="WixUIDialogBmp" Value="assets\UiDialog.bmp" />
 
     <MajorUpgrade AllowDowngrades="no" DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
-    
+
     <Media Id="1" Cabinet="AntMe.cab" EmbedCab="yes" DiskPrompt="File #1" />
     <Property Id="DiskPrompt" Value="[1]" />
 
-    <Property Id="Check_Xna_4.0">1</Property>
-    <Property Id="Check_DirectX_Xna_4.0">1</Property>
-    <Property Id="Check_DotNet_4.0_Full">1</Property>
+    <Property Id="Check_DotNet_4.5">1</Property>
 
-    <PropertyRef Id="NETFRAMEWORK40FULL"/>
-    <Condition Message="AntMe! 1.7 requires .NET Framework 4.0. Please install the .NET Framework then run this installer again.">
-      <![CDATA[Installed OR NETFRAMEWORK40FULL]]>
+    <PropertyRef Id="NETFRAMEWORK45"/>
+    <Condition Message="AntMe! 1.7 requires .NET Framework 4.5. Please install the .NET Framework then run this installer again.">
+      <![CDATA[Installed OR NETFRAMEWORK45]]>
     </Condition>
 
     <Feature Id="MainComponents" Title="AntMe! 1.7" Level="1">
@@ -56,10 +54,10 @@
       <ComponentRef Id="SimulationPlugin" />
       <ComponentRef Id="DemoAmeisen" />
       <ComponentRef Id="GdiPlusPlugin" />
-      <ComponentRef Id="XnaPlugin" />
+      <ComponentRef Id="FNAPlugin" />
       <ComponentRef Id="AntMe" />
       <ComponentRef Id="Uninstall" />
-      <ComponentRef Id="XnaContent" />
+      <ComponentRef Id="FNAContent" />
       <ComponentRef Id="GermanDocumentation" />
       <ComponentRef Id="GermanDocumentationImages" />
       <ComponentRef Id="EnglishDocumentation" />
@@ -122,9 +120,9 @@
         <File Source="$(var.GdiPlusPlugin.TargetPath)" KeyPath="yes" Checksum="yes" />
       </Component>
 
-      <!-- XNA Visualizer -->
-      <Component Id="XnaPlugin" Guid="{989586A0-925D-4512-B22B-7205288CF929}">
-        <File Source="$(var.XnaPlugin.TargetPath)" KeyPath="yes" Checksum="yes" />
+      <!-- FNA Visualizer -->
+      <Component Id="FNAPlugin" Guid="{4B2343DD-7766-443D-B31D-71A081B7085B}">
+        <File Source="$(var.FNAPlugin.TargetPath)" KeyPath="yes" Checksum="yes" />
       </Component>
 
       <!-- AntMe.Online.Client -->
@@ -133,7 +131,7 @@
         <File Source="$(var.AntMe.Online.Client.TargetDir)/AntMe.Online.Client.XML" />
         <File Source="$(var.AntMe.Online.Client.TargetDir)/Newtonsoft.Json.dll" Checksum="yes" />
       </Component>
-      
+
       <!-- AntMe.PlayerManagement -->
       <Component Id="AntMePlayerManagement" Guid="{E20CC850-09DF-403F-80C7-DE1E6BE16997}">
         <File Source="$(var.PlayerManagement.TargetPath)" KeyPath="yes" Checksum="yes" />
@@ -171,25 +169,25 @@
       <File Source="$(var.PlayerManagement.TargetDir)/de/AntMe.PlayerManagement.resources.dll" />
       <File Source="$(var.SimulationPlugin.TargetDir)/de/AntMe.Plugin.Simulation.resources.dll" />
       <File Source="$(var.GdiPlusPlugin.TargetDir)/de/AntMe.Plugin.GdiPlusPlugin.resources.dll" />
-      <File Source="$(var.XnaPlugin.TargetDir)/de/AntMe.Plugin.Xna.resources.dll" />
+      <File Source="$(var.FNAPlugin.TargetDir)/de/AntMe.Plugin.FNA.resources.dll" />
     </Component>
 
-    <!-- XNA Content Files -->
-    <Component Id="XnaContent" Guid="{8FB366A1-E1D8-4822-8E9B-0C11D3293305}" Directory="ContentFolder">
-      <File Source="$(var.XnaPlugin.TargetDir)/Content/ant.xnb" />
-      <File Source="$(var.XnaPlugin.TargetDir)/Content/anthill.xnb" />
-      <File Source="$(var.XnaPlugin.TargetDir)/Content/apple.xnb" />
-      <File Source="$(var.XnaPlugin.TargetDir)/Content/borderTex.xnb" />
-      <File Source="$(var.XnaPlugin.TargetDir)/Content/box.xnb" />
-      <File Source="$(var.XnaPlugin.TargetDir)/Content/bug.xnb" />
-      <File Source="$(var.XnaPlugin.TargetDir)/Content/dirt.xnb" />
-      <File Source="$(var.XnaPlugin.TargetDir)/Content/HudFont.xnb" />
-      <File Source="$(var.XnaPlugin.TargetDir)/Content/pix.xnb" />
-      <File Source="$(var.XnaPlugin.TargetDir)/Content/sky.xnb" />
-      <File Source="$(var.XnaPlugin.TargetDir)/Content/SkyEffect.xnb" />
-      <File Source="$(var.XnaPlugin.TargetDir)/Content/sphere.xnb" />
-      <File Source="$(var.XnaPlugin.TargetDir)/Content/sugar.xnb" />
-      <File Source="$(var.XnaPlugin.TargetDir)/Content/textbox.xnb" />
+    <!-- FNA Content Files -->
+    <Component Id="FNAContent" Guid="{7574A8D7-7570-4A2D-AE19-7C4F3904126B}" Directory="ContentFolder">
+      <File Source="$(var.FNAPlugin.TargetDir)/Content/ant.xnb" />
+      <File Source="$(var.FNAPlugin.TargetDir)/Content/anthill.xnb" />
+      <File Source="$(var.FNAPlugin.TargetDir)/Content/apple.xnb" />
+      <File Source="$(var.FNAPlugin.TargetDir)/Content/borderTex.xnb" />
+      <File Source="$(var.FNAPlugin.TargetDir)/Content/box.xnb" />
+      <File Source="$(var.FNAPlugin.TargetDir)/Content/bug.xnb" />
+      <File Source="$(var.FNAPlugin.TargetDir)/Content/dirt.xnb" />
+      <File Source="$(var.FNAPlugin.TargetDir)/Content/HudFont.xnb" />
+      <File Source="$(var.FNAPlugin.TargetDir)/Content/pix.xnb" />
+      <File Source="$(var.FNAPlugin.TargetDir)/Content/sky.xnb" />
+      <File Source="$(var.FNAPlugin.TargetDir)/Content/SkyEffect.xnb" />
+      <File Source="$(var.FNAPlugin.TargetDir)/Content/sphere.xnb" />
+      <File Source="$(var.FNAPlugin.TargetDir)/Content/sugar.xnb" />
+      <File Source="$(var.FNAPlugin.TargetDir)/Content/textbox.xnb" />
     </Component>
 
     <!-- Deutsche Doku -->
