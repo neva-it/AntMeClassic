@@ -39,11 +39,11 @@
     <Media Id="1" Cabinet="AntMe.cab" EmbedCab="yes" DiskPrompt="File #1" />
     <Property Id="DiskPrompt" Value="[1]" />
 
-    <Property Id="Check_DotNet_4.5">1</Property>
+    <Property Id="Check_DotNet_4.0_FUll">1</Property>
 
-    <PropertyRef Id="NETFRAMEWORK45"/>
-    <Condition Message="AntMe! 1.7 requires .NET Framework 4.5. Please install the .NET Framework then run this installer again.">
-      <![CDATA[Installed OR NETFRAMEWORK45]]>
+    <PropertyRef Id="NETFRAMEWORK40FULL"/>
+    <Condition Message="AntMe! 1.7 requires .NET Framework 4.0. Please install the .NET Framework then run this installer again.">
+      <![CDATA[Installed OR NETFRAMEWORK40FULL]]>
     </Condition>
 
     <Feature Id="MainComponents" Title="AntMe! 1.7" Level="1">
