@@ -47,7 +47,7 @@ namespace AntMe.Simulation
         public List<PlayerInfo> Analyse(byte[] file, bool checkRules)
         {
             // load base-class from Simulation-Core.#     
-            ModuleDefinition simulation = ModuleDefinition.ReadModule(Assembly.GetExecutingAssembly().Modules.First().FullyQualifiedName);
+            ModuleDefinition simulation = ModuleDefinition.ReadModule(Assembly.GetExecutingAssembly().GetModules().First().FullyQualifiedName);
             _coreAnt = simulation.GetType("AntMe.Simulation.CoreAnt");
             //coreAnt = simulation.GetType("AntMe.Simulation.CoreAnt");
 
