@@ -46,6 +46,17 @@ namespace AntMe.English {
         }
 
         /// <summary>
+        /// Gives the distance between the to given objects
+        /// </summary>
+        /// <param name="a">object 1</param>
+        /// <param name="b">object 2</param>
+        /// <returns>Distance between</returns>
+        public static int GetDistanceBetween(ICoordinate a, ICoordinate b)
+        {
+            return CoreCoordinate.BestimmeEntfernung(a, b);
+        }
+
+        /// <summary>
         /// Gives the direction from object 1 to object 2
         /// </summary>
         /// <param name="a">object 1</param>
@@ -82,6 +93,17 @@ namespace AntMe.English {
         /// <param name="b">object 2</param>
         /// <returns>direction</returns>
         public static int GetDegreesBetween(CoreAnt a, CoreAnt b) {
+            return CoreCoordinate.BestimmeRichtung(a, b);
+        }
+
+        /// <summary>
+        /// Gives the direction from object 1 to object 2
+        /// </summary>
+        /// <param name="a">object 1</param>
+        /// <param name="b">object 2</param>
+        /// <returns>direction</returns>
+        public static int GetDegreesBetween(ICoordinate a, ICoordinate b)
+        {
             return CoreCoordinate.BestimmeRichtung(a, b);
         }
     }

@@ -17,7 +17,7 @@ namespace AntMe.English {
         /// <summary>
         /// Delivers the base-item
         /// </summary>
-        internal ICoordinate Baseitem {
+        public ICoordinate Baseitem {
             get { return item; }
         }
 

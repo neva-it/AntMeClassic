@@ -7,6 +7,11 @@ namespace AntMe.English {
     public abstract class Insect : Item {
         internal Insect(CoreInsect insekt) : base(insekt) {}
 
+        public Anthill GetNearestAnthill()
+        {
+            return new Anthill(((CoreInsect)Baseitem).GetNearestCoreAntHill());
+        }
+
         /// <summary>
         /// Returns the unique ID of this insect
         /// </summary>

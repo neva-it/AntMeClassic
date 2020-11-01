@@ -6,7 +6,7 @@ namespace AntMe.Simulation
     /// Ein Bau eines Ameisenvolkes.
     /// </summary>
     /// <author>Wolfgang Gallo (wolfgang@antme.net)</author>
-    internal sealed class CoreAnthill : ICoordinate
+    public sealed class CoreAnthill : ICoordinate
     {
         // Die Id des nächsten erzeugten Bau.
         private static int neueId = 0;

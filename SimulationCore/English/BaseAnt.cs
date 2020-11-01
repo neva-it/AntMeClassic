@@ -17,6 +17,11 @@ namespace AntMe.English
             return ChooseCaste(anzahl);
         }
 
+        public Anthill GetNearestAnthill()
+        {
+            return new Anthill(GetNearestCoreAntHill());
+        }
+
         /// <summary>
         /// Every time that a new ant is born, its job group must be set. You can do 
         /// so with the help of the value returned by this method.

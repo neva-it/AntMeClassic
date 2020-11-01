@@ -476,6 +476,16 @@ namespace AntMe.Simulation
             {
                 return;
             }
+            
+            GeheZuZielBase(GetNearestCoreAntHill());
+        }
+
+        /// <summary>
+        /// Gets the nearest ant hill.
+        /// </summary>
+        /// <returns></returns>
+        public CoreAnthill GetNearestCoreAntHill()
+        {
             int aktuelleEntfernung;
             int gemerkteEntfernung = int.MaxValue;
             CoreAnthill gemerkterBau = null;
@@ -488,7 +498,8 @@ namespace AntMe.Simulation
                     gemerkteEntfernung = aktuelleEntfernung;
                 }
             }
-            GeheZuZielBase(gemerkterBau);
+
+            return gemerkterBau;
         }
 
         /// <summary>
