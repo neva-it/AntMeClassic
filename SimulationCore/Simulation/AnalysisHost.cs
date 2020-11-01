@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Reflection;
 
 namespace AntMe.Simulation
@@ -459,7 +460,7 @@ namespace AntMe.Simulation
                 #region Erkennung älterer KI-Versionen
 
                 // Ältere Versionen
-                else if (type.BaseType.Name == "AntMe.Ameise")
+                else if (type.BaseType?.Name == "AntMe.Ameise")
                 {
                     // Leerer Spieler-Rumpf
                     int playerDefinitions = 0;
