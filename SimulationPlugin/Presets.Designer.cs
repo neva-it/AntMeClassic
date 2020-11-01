@@ -63,6 +63,16 @@ namespace AntMe.Plugin.Simulation {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        internal static byte[] BattleSettings {
+            get {
+                object obj = ResourceManager.GetObject("BattleSettings", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         internal static byte[] CaptureTheApple {
             get {
                 object obj = ResourceManager.GetObject("CaptureTheApple", resourceCulture);

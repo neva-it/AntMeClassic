@@ -74,6 +74,8 @@ namespace AntMe.Plugin.Simulation
             presetComboBox.Items.Add(SimulationSettings.Default);
 
             // Other Presets
+            using (var stream = new MemoryStream(Presets.BattleSettings))
+                presetComboBox.Items.Add(SimulationSettings.LoadSettings(stream));
             using (var stream = new MemoryStream(Presets.CaptureTheApple))
                 presetComboBox.Items.Add(SimulationSettings.LoadSettings(stream));
             using (var stream = new MemoryStream(Presets.Debugging))
